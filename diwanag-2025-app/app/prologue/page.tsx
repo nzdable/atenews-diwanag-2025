@@ -248,13 +248,13 @@ export default function ProloguePage() {
           position: "absolute",
           bottom: "10%",
           left: "10%",
-          width: "60px",
-          height: "60px",
+          width: "100px",
+          height: "100px",
           background:
             "radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent)",
           borderRadius: "50%",
           zIndex: 2,
-          animation: "float 8s ease-in-out infinite",
+          animation: "float 6s ease-in-out infinite",
         }}
       />
 
