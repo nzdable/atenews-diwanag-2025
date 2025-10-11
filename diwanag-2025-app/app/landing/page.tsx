@@ -11,14 +11,15 @@ export default function LandingPage() {
       className="bg-light"
       style={{
         minHeight: "100vh",
+        maxHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         gap: "8rem",
         alignItems: "center",
-        justifyContent: "flex-end",
         background: "var(--bg-light)",
         width: "100%",
         boxSizing: "border-box",
+        overflow: "hidden",
         position: "relative",
       }}
     >
