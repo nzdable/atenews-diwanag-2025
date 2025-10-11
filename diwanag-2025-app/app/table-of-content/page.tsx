@@ -316,7 +316,7 @@ export default function TableOfContents() {
         <p className="mt-4 border-b border-[var(--accent-gold)]" />
 
         {/* TOC Items */}
-        <nav className="flex flex-col gap-1 font-['averia-serif'] overflow-y-auto h-[calc(100%-8rem)]">
+        <nav className="flex flex-col gap-1 font-['averia-serif'] overflow-y-auto h-[calc(100%-8rem)] scrollbar-hidden">
           {tocItems.map((item, index) => (
             <div key={item.title}>
               {/* Chapter Header */}
@@ -384,6 +384,16 @@ export default function TableOfContents() {
         </nav>
         <p className="mt-4 border-b border-[var(--accent-gold)]" />
       </aside>
+
+      <style jsx>{`
+        .scrollbar-hidden {
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE and Edge */
+        }
+        .scrollbar-hidden::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Opera */
+        }
+      `}</style>
     </>
   );
 }
