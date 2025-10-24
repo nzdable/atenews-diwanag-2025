@@ -80,16 +80,13 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel Environment
-        working-directory: ./diwanag-2025-app
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} --cwd=./diwanag-2025-app
 
       - name: Build Project
-        working-directory: ./diwanag-2025-app
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} --cwd=./diwanag-2025-app
 
       - name: Deploy to Vercel
-        working-directory: ./diwanag-2025-app
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} --cwd=./diwanag-2025-app
 
   # Deploy Preview (for PRs)
   deploy-preview:
@@ -106,18 +103,15 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel Environment
-        working-directory: ./diwanag-2025-app
-        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }} --cwd=./diwanag-2025-app
 
       - name: Build Project
-        working-directory: ./diwanag-2025-app
-        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }} --cwd=./diwanag-2025-app
 
       - name: Deploy Preview
         id: deploy
-        working-directory: ./diwanag-2025-app
         run: |
-          URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
+          URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} --cwd=./diwanag-2025-app)
           echo "url=$URL" >> $GITHUB_OUTPUT
 
       - name: Comment Preview URL
